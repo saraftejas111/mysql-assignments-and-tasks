@@ -1,0 +1,60 @@
+~primary key   -------   unique or not null
+
+
+select * from employees;
+select * from address;
+
+-- JOIN : 1) foreign key  , 2) joins
+
+SELECT employees.names ,  address.area , address.city
+FROM employees JOIN address ON employees.pin = address.pin;
+
+
+
+
+
+SELECT * FROM students;
+SELECT * FROM faculty;
+update students set subject='DA' where names='neha';
+insert into faculty values ('mayur' , 'SS');
+-- INNER , LEFT , RIGHT , FULL OUTER JOIN 
+
+
+-- INNER : only returns the mathcing data 
+SELECT students.names  , students.subject , faculty.name 
+FROM students INNER JOIN faculty ON students.subject = faculty.language; 
+
+-- LEFT : returns all data of left table and 
+-- declare null in right table columns if not matched 
+
+SELECT students.names  , students.subject , faculty.name 
+FROM students LEFT JOIN faculty ON students.subject = faculty.language; 
+
+-- RIGHT : returns all data of right table and 
+-- declare null in left table columns if not matched 
+
+SELECT students.names  , students.subject , faculty.name 
+FROM students RIGHT JOIN faculty ON students.subject = faculty.language; 
+
+-- FULL JOIN : return all the data of both tables ,
+-- if not match declares null to opposite column
+
+SELECT students.names  , students.subject , faculty.name 
+FROM students LEFT JOIN faculty ON students.subject = faculty.language
+UNION
+SELECT students.names  , students.subject , faculty.name 
+FROM students RIGHT JOIN faculty ON students.subject = faculty.language;  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
